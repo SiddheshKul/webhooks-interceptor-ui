@@ -7,10 +7,8 @@ const RequestViewer = () => {
   const location = useLocation();
   const sessionId = location.state?.sessionId;
 
-  // Custom hook to fetch session requests
-  const { data, isLoading, isError } = useSessionRequests(sessionId);
+  const { data, isLoading, isError, refetch } = useSessionRequests(sessionId);
 
-  // Track the selected request
   const [selectedRequest, setSelectedRequest] = useState<SessionRequest | null>(null);
 
   if (!sessionId) {
@@ -22,9 +20,18 @@ const RequestViewer = () => {
 
   return (
     <div className="request-viewer">
+      {/* Refetch Button */}
+      <button
+        className="refetch-button"
+        onClick={() => refetch()}
+        disabled={isLoading}
+      >
+        {isLoading ? 'Refetching...' : 'Refetch'}
+      </button>
+
       {/* Left panel */}
       <div className="request-list">
-        {data?.length ?? 0 > 0 ? (
+        {data?.length ? (
           data?.map((req) => (
             <div
               key={req.id}

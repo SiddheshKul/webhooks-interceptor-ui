@@ -1,4 +1,20 @@
-/* src/components/RequestViewer.css */
+.refetch-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.refetch-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .request-viewer {
     display: flex;
     height: 100vh;
