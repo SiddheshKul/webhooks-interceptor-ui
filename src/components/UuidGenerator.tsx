@@ -35,7 +35,7 @@ const UuidGenerator = () => {
           {isLoading && <p className="info-text">Generating session...</p>}
           {isError && <p className="error-text">Failed to generate session.</p>}
           {hasGenerated && uuid && (
-            <p className="success-text">Generated Session Successfully</p>
+            <p className="success-text">Generated Session Successfully: {uuid}</p>
           )}
         </div>
         <div className="button-group">
